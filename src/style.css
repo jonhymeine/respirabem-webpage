@@ -1,0 +1,44 @@
+/* Universal Box-Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+/* Headings Reset */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Link Styling */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* List Reset */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Removes default bullet points/numbers */
+}
+
+/* Basic Paragraph Styling */
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
