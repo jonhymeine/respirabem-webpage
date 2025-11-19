@@ -479,6 +479,7 @@ p {
 .forecast-container {
   display: flex;
   gap: 15px;
+  justify-content: space-between;
   padding: 10px 0;
 }
 
