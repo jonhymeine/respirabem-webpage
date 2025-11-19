@@ -4,7 +4,7 @@ export const AQI_LEVELS = {
   MODERATE: {
     min: 51,
     max: 100,
-    color: "#FFFF00",
+    color: "#EECE00",
     label: "Moderado",
     icon: "😐",
   },
@@ -50,7 +50,7 @@ export type RiskLevelType = (typeof RiskLevel)[keyof typeof RiskLevel];
 
 export const RISK_COLORS = {
   [RiskLevel.LOW]: "#00E400",
-  [RiskLevel.MODERATE]: "#FFFF00",
+  [RiskLevel.MODERATE]: "#EECE00",
   [RiskLevel.HIGH]: "#FF7E00",
   [RiskLevel.VERY_HIGH]: "#FF0000",
 } as const;
