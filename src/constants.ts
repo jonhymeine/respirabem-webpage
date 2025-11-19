@@ -1,66 +1,66 @@
 // Air Quality Index (AQI) Categories and Colors
 export const AQI_LEVELS = {
-  GOOD: { min: 0, max: 50, color: "#00E400", label: "Bom", icon: "😊" },
+  GOOD: { min: 0, max: 50, color: '#00E400', label: 'Bom', icon: '😊' },
   MODERATE: {
     min: 51,
     max: 100,
-    color: "#EECE00",
-    label: "Moderado",
-    icon: "😐",
+    color: '#EECE00',
+    label: 'Moderado',
+    icon: '😐',
   },
   UNHEALTHY_SENSITIVE: {
     min: 101,
     max: 150,
-    color: "#FF7E00",
-    label: "Insalubre para Grupos Sensíveis",
-    icon: "😷",
+    color: '#FF7E00',
+    label: 'Insalubre para Grupos Sensíveis',
+    icon: '😷',
   },
   UNHEALTHY: {
     min: 151,
     max: 200,
-    color: "#FF0000",
-    label: "Insalubre",
-    icon: "😨",
+    color: '#FF0000',
+    label: 'Insalubre',
+    icon: '😨',
   },
   VERY_UNHEALTHY: {
     min: 201,
     max: 300,
-    color: "#8F3F97",
-    label: "Muito Insalubre",
-    icon: "🚨",
+    color: '#8F3F97',
+    label: 'Muito Insalubre',
+    icon: '🚨',
   },
   HAZARDOUS: {
     min: 301,
     max: 500,
-    color: "#7E0023",
-    label: "Perigoso",
-    icon: "☠️",
+    color: '#7E0023',
+    label: 'Perigoso',
+    icon: '☠️',
   },
-} as const;
+} as const
 
 // Risk levels for asthmatics
 export const RiskLevel = {
-  LOW: "BAIXO",
-  MODERATE: "MODERADO",
-  HIGH: "ALTO",
-  VERY_HIGH: "MUITO_ALTO",
-} as const;
+  LOW: 'BAIXO',
+  MODERATE: 'MODERADO',
+  HIGH: 'ALTO',
+  VERY_HIGH: 'MUITO_ALTO',
+} as const
 
-export type RiskLevelType = (typeof RiskLevel)[keyof typeof RiskLevel];
+export type RiskLevelType = (typeof RiskLevel)[keyof typeof RiskLevel]
 
 export const RISK_COLORS = {
-  [RiskLevel.LOW]: "#00E400",
-  [RiskLevel.MODERATE]: "#EECE00",
-  [RiskLevel.HIGH]: "#FF7E00",
-  [RiskLevel.VERY_HIGH]: "#FF0000",
-} as const;
+  [RiskLevel.LOW]: '#00E400',
+  [RiskLevel.MODERATE]: '#EECE00',
+  [RiskLevel.HIGH]: '#FF7E00',
+  [RiskLevel.VERY_HIGH]: '#FF0000',
+} as const
 
 export const RISK_ICONS = {
-  [RiskLevel.LOW]: "🟢",
-  [RiskLevel.MODERATE]: "🟡",
-  [RiskLevel.HIGH]: "🟠",
-  [RiskLevel.VERY_HIGH]: "🔴",
-} as const;
+  [RiskLevel.LOW]: '🟢',
+  [RiskLevel.MODERATE]: '🟡',
+  [RiskLevel.HIGH]: '🟠',
+  [RiskLevel.VERY_HIGH]: '🔴',
+} as const
 
 // Thresholds for asthmatic triggers
 export const ASTHMA_THRESHOLDS = {
@@ -92,31 +92,31 @@ export const ASTHMA_THRESHOLDS = {
   DUST_LOW: 20,
   DUST_MODERATE: 50,
   DUST_HIGH: 100,
-} as const;
+} as const
 
 // Messages for different conditions
 export const CONDITION_MESSAGES = {
-  EXCELLENT: "Excelente momento para atividades ao ar livre! 🌟",
-  GOOD: "Boas condições. Aproveite com segurança! ✅",
-  FAIR: "Condições razoáveis. Mantenha o inalador por perto. ⚠️",
-  POOR: "Evite atividades intensas ao ar livre. 🚫",
-  VERY_POOR: "Permaneça em ambientes fechados. Risco elevado! 🏠",
-  HAZARDOUS: "ALERTA: Condições perigosas! Mantenha-se dentro de casa. 🚨",
-} as const;
+  EXCELLENT: 'Excelente momento para atividades ao ar livre! 🌟',
+  GOOD: 'Boas condições. Aproveite com segurança! ✅',
+  FAIR: 'Condições razoáveis. Mantenha o inalador por perto. ⚠️',
+  POOR: 'Evite atividades intensas ao ar livre. 🚫',
+  VERY_POOR: 'Permaneça em ambientes fechados. Risco elevado! 🏠',
+  HAZARDOUS: 'ALERTA: Condições perigosas! Mantenha-se dentro de casa. 🚨',
+} as const
 
 // Alert types
 export const AlertType = {
-  INFO: "info",
-  WARNING: "warning",
-  DANGER: "danger",
-} as const;
+  INFO: 'info',
+  WARNING: 'warning',
+  DANGER: 'danger',
+} as const
 
-export type AlertTypeType = (typeof AlertType)[keyof typeof AlertType];
+export type AlertTypeType = (typeof AlertType)[keyof typeof AlertType]
 
 // Default coordinates (Itajaí, Brazil)
 export const DEFAULT_COORDINATES = {
   latitude: -26.9078,
   longitude: -48.6619,
-  city: "Itajaí",
-  state: "SC",
-} as const;
+  city: 'Itajaí',
+  state: 'SC',
+} as const
