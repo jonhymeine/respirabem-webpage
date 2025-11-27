@@ -50,7 +50,7 @@ const useGeolocationBtn = document.getElementById('use-geolocation-btn')
 
 // State
 let currentCities: ICity[] = []
-let currentLocation: SelectedLocation | null = null
+
 
 /**
  * Show error state
@@ -303,7 +303,6 @@ function initApp() {
   // Check for saved location
   const savedLocation = getSavedLocation()
   if (savedLocation) {
-    currentLocation = savedLocation
     handleFetch(savedLocation.latitude, savedLocation.longitude, savedLocation.city, savedLocation.state).catch((e) =>
       console.error('Error fetching weather', e),
     )
@@ -387,7 +386,6 @@ function setupCitySelector() {
   if (useGeolocationBtn && cityModal) {
     useGeolocationBtn.addEventListener('click', () => {
       cityModal.style.display = 'none'
-      currentLocation = null
       localStorage.removeItem('selectedLocation')
 
       if (typeof navigator !== 'undefined' && navigator.geolocation) {
@@ -529,7 +527,6 @@ function selectCity(city: ICity) {
     longitude: Number.parseFloat(city.longitude || '0'),
   }
 
-  currentLocation = location
   saveLocation(location)
 
   // Close modal
