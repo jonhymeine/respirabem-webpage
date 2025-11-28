@@ -1,7 +1,6 @@
 {
   "name": "respirabem-webpage",
   "homepage": "https://jonhymeine.github.io/respirabem-webpage",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
