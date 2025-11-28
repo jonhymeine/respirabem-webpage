@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/respirabem-webpage/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RespiraBEM - Previsão do Tempo para Asmáticos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/respirabem-webpage/assets/index-niBmwmqT.js"></script>
+    <link rel="stylesheet" crossorigin href="/respirabem-webpage/assets/index-DDW69_Ed.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Loading State -->
+      <div id="loading" class="loading-container">
+        <div class="spinner"></div>
+        <p>Carregando informações...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="error" class="error-container" style="display: none">
+        <div class="error-icon">⚠️</div>
+        <h2>Erro ao carregar dados</h2>
+        <p id="error-message"></p>
+        <button id="retry-button" class="btn-primary">Tentar Novamente</button>
+      </div>
+
+      <!-- Main Content -->
+      <div id="main-content" style="display: none">
+        <!-- Header -->
+        <header class="app-header">
+          <div class="container">
+            <h1 class="app-title">🫁 RespiraBEM</h1>
+            <p class="app-subtitle">Condições climáticas para asmáticos</p>
+          </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="container">
+            <div class="location">
+              <span class="location-icon">📍</span>
+              <span id="location-name">Carregando localização...</span>
+              <button
+                id="change-location-btn"
+                class="change-location-btn"
+                title="Mudar localização"
+              >
+                📝
+              </button>
+            </div>
+            <div class="hero-content">
+              <div class="status-icon" id="status-icon">🫁</div>
+              <h2 class="status-title" id="status-title">Calculando...</h2>
+              <div class="aqi-display">
+                <span class="aqi-value" id="aqi-value">--</span>
+                <span class="aqi-label">Índice de Qualidade do Ar</span>
+              </div>
+              <p class="status-message" id="status-message">
+                Analisando condições...
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Weather Cards -->
+        <section class="weather-cards">
+          <div class="container">
+            <div class="cards-grid">
+              <div class="weather-card">
+                <div class="card-icon">🌡️</div>
+                <div class="card-value" id="temperature">--°C</div>
+                <div class="card-label">Temperatura</div>
+              </div>
+              <div class="weather-card">
+                <div class="card-icon">💨</div>
+                <div class="card-value" id="wind-speed">-- km/h</div>
+                <div class="card-label">Vento</div>
+              </div>
+              <div class="weather-card">
+                <div class="card-icon">💧</div>
+                <div class="card-value" id="humidity">--%</div>
+                <div class="card-label">Umidade</div>
+              </div>
+              <div class="weather-card">
+                <div class="card-icon">🏭</div>
+                <div class="card-value" id="dust">--</div>
+                <div class="card-label">Poeira</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Alerts Section -->
+        <section class="alerts-section">
+          <div class="container">
+            <h3 class="section-title">⚠️ Alertas</h3>
+            <div id="alerts-container" class="alerts-container">
+              <!-- Alerts will be dynamically inserted here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="recommendations-section">
+          <div class="container">
+            <h3 class="section-title">💡 Recomendações</h3>
+            <div
+              id="recommendations-container"
+              class="recommendations-container"
+            >
+              <!-- Recommendations will be dynamically inserted here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Forecast Chart Section -->
+        <section class="forecast-section">
+          <div class="container">
+            <h3 class="section-title">📊 Próximas 24 horas</h3>
+            <div class="forecast-scroll">
+              <div id="forecast-container" class="forecast-container">
+                <!-- Forecast items will be dynamically inserted here -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+          <div class="container">
+            <p>
+              Dados fornecidos por
+              <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a>
+            </p>
+            <p class="footer-disclaimer">
+              ⚠️ Este aplicativo não substitui orientação médica profissional
+            </p>
+          </div>
+        </footer>
+      </div>
+
+      <!-- City Selection Modal -->
+      <div id="city-modal" class="modal" style="display: none">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Selecionar Localização</h2>
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+          </div>
+          <div class="modal-body">
+            <!-- Country Selection -->
+            <div class="form-group">
+              <label for="country-select">País:</label>
+              <select id="country-select" class="form-select">
+                <option value="">Selecione um país...</option>
+              </select>
+            </div>
+
+            <!-- State Selection -->
+            <div class="form-group">
+              <label for="state-select">Estado:</label>
+              <select id="state-select" class="form-select" disabled>
+                <option value="">Selecione um estado...</option>
+              </select>
+            </div>
+
+            <!-- City Search -->
+            <div class="form-group">
+              <label for="city-search">Buscar Cidade:</label>
+              <input
+                type="text"
+                id="city-search"
+                class="form-input"
+                placeholder="Digite o nome da cidade..."
+                disabled
+              />
+            </div>
+
+            <!-- City List -->
+            <div id="city-list-container" class="city-list-container">
+              <p class="hint-text">Selecione um país e estado primeiro</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="use-geolocation-btn" class="btn-secondary">
+              📍 Usar Minha Localização
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
