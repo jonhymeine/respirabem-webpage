@@ -11,8 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/respirabem-webpage/assets/index-niBmwmqT.js"></script>
-    <link rel="stylesheet" crossorigin href="/respirabem-webpage/assets/index-DDW69_Ed.css">
+    <script type="module" crossorigin src="/respirabem-webpage/assets/index-kkOiSDzF.js"></script>
+    <link rel="stylesheet" crossorigin href="/respirabem-webpage/assets/index-L-Ks58df.css">
   </head>
   <body>
     <div id="app">
@@ -35,7 +35,7 @@
         <!-- Header -->
         <header class="app-header">
           <div class="container">
-            <h1 class="app-title">🫁 RespiraBEM</h1>
+            <h1 class="app-title"><img src="/respirabem-webpage/logo.png" alt="RespiraBEM" class="logo-img" /></h1>
             <p class="app-subtitle">Condições climáticas para asmáticos</p>
           </div>
         </header>
@@ -59,7 +59,15 @@
               <h2 class="status-title" id="status-title">Calculando...</h2>
               <div class="aqi-display">
                 <span class="aqi-value" id="aqi-value">--</span>
-                <span class="aqi-label">Índice de Qualidade do Ar</span>
+                <span class="aqi-label">
+                  Índice de Qualidade do Ar
+                  <button 
+                    id="aqi-info-btn" 
+                    class="info-btn" 
+                    data-tooltip="Índice de Qualidade do Ar Americana:&#10;&#10;0-50: Boa (Verde)&#10;Qualidade do ar satisfatória&#10;&#10;51-100: Moderada (Amarelo)&#10;Aceitável para a maioria&#10;&#10;101-150: Insalubre para grupos sensíveis (Laranja)&#10;Pessoas sensíveis devem limitar atividades prolongadas ao ar livre&#10;&#10;151-200: Insalubre (Vermelho)&#10;Todos podem sentir efeitos na saúde&#10;&#10;201-300: Muito insalubre (Roxo)&#10;Alerta de saúde: todos podem sentir efeitos graves&#10;&#10;301+: Perigosa (Marrom)&#10;Emergência de saúde: população inteira em risco"
+                    aria-label="Informações sobre a escala US AQI"
+                  >ℹ️</button>
+                </span>
               </div>
               <p class="status-message" id="status-message">
                 Analisando condições...
@@ -71,6 +79,7 @@
         <!-- Weather Cards -->
         <section class="weather-cards">
           <div class="container">
+            <h3 class="section-title">🌤️ Condições Climáticas na sua Região</h3>
             <div class="cards-grid">
               <div class="weather-card">
                 <div class="card-icon">🌡️</div>
@@ -122,7 +131,7 @@
         <!-- Forecast Chart Section -->
         <section class="forecast-section">
           <div class="container">
-            <h3 class="section-title">📊 Próximas 24 horas</h3>
+            <h3 class="section-title">📊 Previsão de risco nas próximas 24 horas</h3>
             <div class="forecast-scroll">
               <div id="forecast-container" class="forecast-container">
                 <!-- Forecast items will be dynamically inserted here -->
